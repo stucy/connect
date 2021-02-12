@@ -21,9 +21,15 @@ const userSchema = new mongoose.Schema({
         required: [true, "Please enter a password!"],
         minlength: [6, "Minimum password length is 6 characters!"]
     },
-    friend_ids: {
-        type: Array,
-        defailt: [],
+    friends: {
+        accepted: {
+            type: Array,
+            default: [],
+        },
+        pending: {
+            type: Array,
+            default: [],
+        }
     },
     settings: {
         darkMode: {
