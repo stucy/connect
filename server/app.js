@@ -2,6 +2,8 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
+const path = require('path');
 
 // custom imports
 const authRoutes = require('./routes/authRoutes');
@@ -13,6 +15,7 @@ dotenv.config();
 // Middleware
 app.use(express.static('public'));
 app.use(express.json());
+app.use(cookieParser());
 
 // app startup
 const PORT = process.env.PORT;
@@ -22,3 +25,6 @@ mongoose.connect(process.env.CONNECTION_URL, {useNewUrlParser: true, useUnifiedT
 
 // app routes
 app.use(authRoutes);
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});

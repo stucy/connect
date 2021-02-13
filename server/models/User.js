@@ -29,20 +29,24 @@ const userSchema = new mongoose.Schema({
         pending: {
             type: Array,
             default: [],
+        },
+        blocked: {
+            type: Array,
+            default: [],
         }
     },
     settings: {
         darkMode: {
             type: Boolean,
-            default: false
+            default: true
         },
         activeStatus: {
             type: Boolean,
-            default: false
+            default: true
         },
         notifications: {
             type: Boolean,
-            default: false
+            default: true
         }
     }
 }, {timestamps: true});
