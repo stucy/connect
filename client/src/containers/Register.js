@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link, Redirect } from 'react-router-dom';
 
 const Auth = () => {
     // states
@@ -8,7 +8,7 @@ const Auth = () => {
     const [loading, setLoading] = useState(false);
 
     // hooks
-    const { Signup, setCurrentUser } = useAuth();
+    const { Signup, setCurrentUser, currentUser } = useAuth();
     const history = useHistory();
 
     // refs
@@ -17,10 +17,10 @@ const Auth = () => {
     const passConfirmRef = useRef();
     const userNameRef = useRef();
 
-    useEffect(() => {
-        if(localStorage.getItem('user'))
-            history.push('/friends');
-    }, []);
+    // event handlers
+    const handleChange = e => {
+
+    }
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -33,11 +33,16 @@ const Auth = () => {
         const passConfirm = passConfirmRef.current.value;
         const username = userNameRef.current.value;
       
+        // check if passwords match
         if(password !== passConfirm){
+            // stop the loading state
             setLoading(false);
+
+            // return to stop the function and set error state
             return setError({passwordConfirm: "Passwords don't match! "});
         }
         
+        // setup a data object for the signup funcion
         const userData = {
             username,
             email,
@@ -46,20 +51,30 @@ const Auth = () => {
 
         try{
             const res = await Signup(userData);
-            console.log(res);
+
+            // if successful register login the user and set the local storage and state
             localStorage.setItem('user', JSON.stringify(res));
             setCurrentUser(res);
+
+            // redirect on successfull register
             history.push('/friends');
         }
         catch(err){
+            // get error object data
             const errors = err.response.data.errors;
+
+            // set error state
             setError(errors);
         }
         finally{
+            // stop the loading state
             setLoading(false);
         }
 
     }
+
+    // if user is logged in redirect to main app
+    if(currentUser) return <Redirect to="/friends" />
 
     return (
         <form onSubmit={handleSubmit} style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>

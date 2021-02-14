@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
+import { useHistory, Link, Redirect } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { useHistory, Link } from 'react-router-dom';
 
 const Auth = () => {
     // states
@@ -8,13 +8,19 @@ const Auth = () => {
     const [loading, setLoading] = useState(false);
 
     // hooks
-    const { Login } = useAuth();
+    const { Login, setCurrentUser, currentUser} = useAuth();
     const history = useHistory();
 
     // refs
     const emailRef = useRef();
     const passRef = useRef();
+    
 
+    const handleChange = e => {
+        console.log(e.target);
+    }
+
+    // event handlers
     const handleSubmit = async e => {
         e.preventDefault();
         
@@ -26,16 +32,31 @@ const Auth = () => {
 
         try{
             const res = await Login(email, pass);
+            
+
+            // if successful login set the local storage and state
+            localStorage.setItem('user', JSON.stringify(res));
+            setCurrentUser(res);
+
+            // redirect on successfull login
             history.push('/friends');
         }
         catch(err){
+            // get error object
             const errors = err.response.data.errors;
+            console.log(errors);
+
+            // set error state
             setError(errors);
         }
         finally{
+            // stop the loading state
             setLoading(false);
         }
     }
+
+    // if user is logged in redirect to main app
+    if(currentUser) return <Redirect to="/friends" />
 
     return (
         <form onSubmit={handleSubmit} style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>

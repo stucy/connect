@@ -4,22 +4,25 @@ import axios from 'axios';
 
 const AuthContext = React.createContext();
 
+// custom hook to use the context
 export function useAuth() {
     return useContext(AuthContext);
 }
 
+// component to implement the context provider
 export const AuthProvider = ({children}) => {
     // state
     const [currentUser, setCurrentUser] = useState(null);
 
     const history = useHistory();
 
+    // updates the state from localStorage on refresh
     useEffect(() => {
         const user = localStorage.getItem('user');
-        if(user != null)
-            setCurrentUser(JSON.parse(user));
+        setCurrentUser(JSON.parse(user));
     }, []);
 
+    // logic functions of the authContext
     const Signup = userData => {
         return axios.post('/signup', userData);
     }
@@ -29,9 +32,11 @@ export const AuthProvider = ({children}) => {
     }
 
     const Logout = async () => {
+        console.log('logout context function');
         try{
             await axios.post('/logout');
             localStorage.clear();
+            setCurrentUser(null);
             history.push('/');
         }
         catch(err){
@@ -39,6 +44,7 @@ export const AuthProvider = ({children}) => {
         }
     }
 
+    // context values
     const value = {
         currentUser,
         setCurrentUser,
