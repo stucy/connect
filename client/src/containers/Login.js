@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 
 const Auth = () => {
     // states
-    const [error, setError] = useState(false);
+    const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
     // hooks
@@ -60,6 +60,7 @@ const Auth = () => {
 
     return (
         <form onSubmit={handleSubmit} style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <span>{error}</span>
                 <input type="text" ref={emailRef} placeholder="Email" />
                 <input type="password" ref={passRef} placeholder="Password" />
             <button type="submit" disabled={loading}>Login</button>

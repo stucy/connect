@@ -99,7 +99,7 @@ const login_post = async (req, res) => {
 const logout_post = (req, res) => {
     // set cookie so it dies instantly
     res.cookie('jwt', '', { maxAge: 1 })
-    res.status(200).json({ status: "success"});
+    res.status(204);
 }
 
 module.exports = {

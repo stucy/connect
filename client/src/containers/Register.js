@@ -78,10 +78,14 @@ const Auth = () => {
 
     return (
         <form onSubmit={handleSubmit} style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <input type="text" ref={emailRef} placeholder="Email" />
-                <input type="text" ref={userNameRef} placeholder="Username" />
-                <input type="password" ref={passRef} placeholder="Password" />
-                <input type="password" ref={passConfirmRef} placeholder="Confirm Password" />
+                <input className={`${error?.email ? 'error' : ''}`} type="text" ref={emailRef} placeholder="Email" />
+                <span>{error?.email}</span>
+                <input className={`${error?.username ? 'error' : ''}`} type="text" ref={userNameRef} placeholder="Username" />
+                <span>{error?.username}</span>
+                <input className={`${error?.password ? 'error' : ''}`} type="password" ref={passRef} placeholder="Password" />
+                <span>{error?.password}</span>
+                <input className={`${error?.passwordConfirm ? 'error' : ''}`} type="password" ref={passConfirmRef} placeholder="Confirm Password" />
+                <span>{error?.passwordConfirm}</span>
             <button type="submit" disabled={loading} >Signup</button>
             <Link to="/login">
                 Already have an account? Login
