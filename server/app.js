@@ -5,8 +5,9 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
-// custom imports
+// import routes
 const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 // app setup
 const app = express();
@@ -25,6 +26,7 @@ mongoose.connect(process.env.CONNECTION_URL, {useNewUrlParser: true, useUnifiedT
 
 // app routes
 app.use(authRoutes);
-app.get('/*', (req, res) => {
+app.use(userRoutes);
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

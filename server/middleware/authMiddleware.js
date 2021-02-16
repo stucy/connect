@@ -6,9 +6,9 @@ const requireAuth = async (req, res, next) => {
     const token = req.cookies.jwt;
 
     if(token){
-        jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
+        jwt.verify(token, process.env.JWT_SECRET, async (err, decodedToken) => {
             if(err){
-                res.status(401);
+                res.status(401).json({error: 'Not authenticated!'});
             }else{
                 const user = await User.findById(decodedToken.id);
                 req.user = user;
@@ -16,7 +16,7 @@ const requireAuth = async (req, res, next) => {
             }
         });
     }else{
-        res.status(401);
+        res.status(401).json({error: 'Not authenticated!'});
     }
 }
 

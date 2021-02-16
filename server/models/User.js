@@ -53,7 +53,10 @@ const userSchema = new mongoose.Schema({
 
 // hash password before we save the user into the databse
 userSchema.pre('save', async function (next) {
+    //generate salt
     const salt = await bcrypt.genSalt();
+
+    //hash password
     this.password = await bcrypt.hash(this.password, salt);
     next();
 })
