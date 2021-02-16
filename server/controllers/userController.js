@@ -93,7 +93,7 @@ const send_invite = async (req, res) => {
     catch(err){
         console.log(err);
         const error = handleErrors(err);
-        res.status(500).json({error});
+        res.status(400).json({error});
     }
 }
 
