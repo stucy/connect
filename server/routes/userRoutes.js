@@ -26,4 +26,6 @@ router.post('/unblock_user', requireAuth, userController.unblock_user);
 
 router.post('/remove_friend', requireAuth, userController.remove_friend);
 
+router.post('/')
+
 module.exports = router;

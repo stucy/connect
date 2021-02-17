@@ -1,5 +1,6 @@
 // imports
 const User = require('../models/User');
+const bcrypt = require('bcrypt');
 
 // handle errors
 const handleErrors = err => {
@@ -12,6 +13,11 @@ const handleErrors = err => {
 
     if(err.message === 'User not found!'){
         errors.invite = err.message;
+        return errors;
+    }
+
+    if(err.message === 'Wrong password!'){
+        errors.oldPass = err.message;
         return errors;
     }
 
@@ -42,13 +48,18 @@ const update_settings = async (req, res) => {
 
 // change password
 const change_password = async (req, res) => {
-    const { password } = req.body;
+    const { oldPassword, newPassword } = req.body;
     const user = req.user;
 
-    // set the new password for the user
-    user.password = password;
-
     try{
+        // check if passwords match
+        const auth = await bcrypt.compare(oldPassword, user.password);
+
+        if(!auth) throw Error('Wrong password!');
+
+        // set the new password for the user
+        user.password = newPassword;
+
         // validate the new password
         await user.validate();
 
