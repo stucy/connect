@@ -19,7 +19,13 @@ const Auth = () => {
 
     // event handlers
     const handleChange = e => {
+        const inputName = e.target.name;
 
+        setError(prevState => {
+            prevState[inputName] = null;
+            
+            return {...prevState}
+        })
     }
 
     const handleSubmit = async e => {
@@ -77,15 +83,19 @@ const Auth = () => {
     if(currentUser) return <Redirect to="/friends" />
 
     return (
-        <form onSubmit={handleSubmit} style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <input className={`${error?.email ? 'error' : ''}`} type="text" ref={emailRef} placeholder="Email" />
-                <span>{error?.email}</span>
-                <input className={`${error?.username ? 'error' : ''}`} type="text" ref={userNameRef} placeholder="Username" />
-                <span>{error?.username}</span>
-                <input className={`${error?.password ? 'error' : ''}`} type="password" ref={passRef} placeholder="Password" />
-                <span>{error?.password}</span>
-                <input className={`${error?.passwordConfirm ? 'error' : ''}`} type="password" ref={passConfirmRef} placeholder="Confirm Password" />
-                <span>{error?.passwordConfirm}</span>
+        <form onSubmit={handleSubmit} autoComplete="off">
+            <input className={`${error?.email ? 'error' : ''}`} type="text" ref={emailRef} placeholder="Email" name="email" onChange={handleChange} />
+            <span className="error-message">{error?.email}</span>
+
+            <input className={`${error?.username ? 'error' : ''}`} type="text" ref={userNameRef} placeholder="Username" name="username" onChange={handleChange} />
+            <span className="error-message">{error?.username}</span>
+
+            <input className={`${error?.password ? 'error' : ''}`} type="password" ref={passRef} placeholder="Password" name="password" onChange={handleChange} />
+            <span className="error-message">{error?.password}</span>
+
+            <input className={`${error?.passwordConfirm ? 'error' : ''}`} type="password" ref={passConfirmRef} placeholder="Confirm Password" name="passwordConfirm" onChange={handleChange} />
+            <span className="error-message">{error?.passwordConfirm}</span>
+
             <button type="submit" disabled={loading} >Signup</button>
             <Link to="/login">
                 Already have an account? Login

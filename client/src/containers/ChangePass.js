@@ -14,6 +14,17 @@ const ChangePass = () => {
 
     const history = useHistory();
 
+    // event handlers
+    const handleChange = e => {
+        const inputName = e.target.name;
+
+        setError(prevState => {
+            prevState[inputName] = null;
+            
+            return {...prevState}
+        })
+    }
+
     const handleSubmit = (e) =>{
         e.preventDefault();
 
@@ -61,9 +72,14 @@ const ChangePass = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="password" ref={oldPass} placeholder="Old Password"/>
+            <input className={`${error?.oldPass ? 'error' : ''}`} type="password" ref={oldPass} placeholder="Old Password"/>
+            <span className="error-message">{error?.oldPassword}</span>
+
             <input type="password" ref={newPass} placeholder="New Password"/>
-            <input type="password" ref={confirmNewPass} placeholder="Confirm new password"/>
+
+            <input className={`${error?.confirmNewPass ? 'error' : ''}`} type="password" ref={confirmNewPass} placeholder="Confirm new password" name="confirmNewPass"/>
+            <span className="error-message">{error?.confirmNewPass}</span>
+
             <button disabled={loading}>Change Password</button>
         </form>
     )

@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 
 const Auth = () => {
     // states
-    const [error, setError] = useState('');
+    const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
     // hooks
@@ -16,8 +16,10 @@ const Auth = () => {
     const passRef = useRef();
     
 
+    // event handlers
     const handleChange = e => {
-        console.log(e.target);
+        if (!error) return;
+        setError('');
     }
 
     // event handlers
@@ -59,7 +61,7 @@ const Auth = () => {
     if(currentUser) return <Redirect to="/friends" />
 
     return (
-        <form onSubmit={handleSubmit} style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <form onSubmit={handleSubmit} onChange={handleChange} autoComplete="off">
                 <span>{error}</span>
                 <input type="text" ref={emailRef} placeholder="Email" />
                 <input type="password" ref={passRef} placeholder="Password" />
