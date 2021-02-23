@@ -102,7 +102,6 @@ const send_invite = async (req, res) => {
         res.status(200).json({status: "success"});
     }
     catch(err){
-        console.log(err);
         const error = handleErrors(err);
         res.status(400).json({error});
     }
@@ -261,6 +260,28 @@ const remove_friend = async (req, res) => {
     }
 }
 
+// gets data from one of the friend arrays
+const friends_data = async (req, res) => {
+
+    // gets the current user
+    const user = req.user;
+
+    // gets the request data
+    const { offset, type } = req.body;
+
+    try{
+        // gets the username and id of all users in the selected friend array with offset and limit
+        const users = await User.find({_id: user.friends[type] }).skip(offset).limit(10)
+        .select('username _id').exec();
+
+        // returns a response
+        res.status(200).json(users);
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
 module.exports = {
     update_settings,
     change_password,
@@ -268,5 +289,6 @@ module.exports = {
     accept_invite,
     block_user,
     unblock_user,
-    remove_friend
+    remove_friend,
+    friends_data
 }
