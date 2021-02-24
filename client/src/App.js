@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/profile" component={Profile}/>
         <Route exact path="/change-password" component={ChangePass}/>
         <Route exact path="/chat/:id" component={Chat}/>
-        <PrivateRoute exact path="/friends" component={Friends} />
+        <Route exact path="/friends" component={Friends} />
         <Route path="*" component={ER404} />
       </Switch>
     </AuthProvider>
