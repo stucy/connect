@@ -2,6 +2,8 @@ import { useState, useRef } from 'react';
 import { useHistory, Link, Redirect } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
+import PasswordInput from '../components/PasswordInput';
+
 const Auth = () => {
     // states
     const [error, setError] = useState(null);
@@ -61,15 +63,21 @@ const Auth = () => {
     if(currentUser) return <Redirect to="/friends" />
 
     return (
-        <form onSubmit={handleSubmit} onChange={handleChange} autoComplete="off">
-                <span>{error}</span>
+       <div className="container__outside">
+           <h1>Let's sign you in.</h1>
+           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+           <form onSubmit={handleSubmit} onChange={handleChange} autoComplete="off">
+                <span className="error-message">{error}</span>
                 <input type="text" ref={emailRef} placeholder="Email" />
-                <input type="password" ref={passRef} placeholder="Password" />
-            <button type="submit" disabled={loading}>Login</button>
-            <Link to="/register">
-                Don't have an accout? Register!
-            </Link>
+                <PasswordInput passRef={passRef} text="Password"/>
+            <div className="inverted__link">
+                <span>
+                    Don't have an account? <Link to="/register">Register!</Link>
+                </span>
+                <button type="submit" disabled={loading}>Sign In</button>
+            </div>
         </form>
+       </div>
     );
 }
 

@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useHistory, Link, Redirect } from 'react-router-dom';
 
+import PasswordInput from '../components/PasswordInput';
+
 const Auth = () => {
     // states
     const [error, setError] = useState({});
@@ -83,24 +85,31 @@ const Auth = () => {
     if(currentUser) return <Redirect to="/friends" />
 
     return (
-        <form onSubmit={handleSubmit} autoComplete="off">
-            <input className={`${error?.email ? 'error' : ''}`} type="text" ref={emailRef} placeholder="Email" name="email" onChange={handleChange} />
-            <span className="error-message">{error?.email}</span>
+        <div className="container__outside">
+           <h1>Make an account</h1>
+           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+           <form onSubmit={handleSubmit} autoComplete="off">
+                <input className={`${error?.email ? 'error' : ''}`} type="email" ref={emailRef} placeholder="Email" name="email" onChange={handleChange} />
+                <span className="error-message">{error?.email}</span>
 
-            <input className={`${error?.username ? 'error' : ''}`} type="text" ref={userNameRef} placeholder="Username" name="username" onChange={handleChange} />
-            <span className="error-message">{error?.username}</span>
+                <input className={`${error?.username ? 'error' : ''}`} type="text" ref={userNameRef} placeholder="Username" name="username" onChange={handleChange} />
+                <span className="error-message">{error?.username}</span>
 
-            <input className={`${error?.password ? 'error' : ''}`} type="password" ref={passRef} placeholder="Password" name="password" onChange={handleChange} />
-            <span className="error-message">{error?.password}</span>
+                <PasswordInput error={error?.password} passRef={passRef} text="Password" name="password" change={handleChange} />
+                <span className="error-message">{error?.password}</span>
 
-            <input className={`${error?.passwordConfirm ? 'error' : ''}`} type="password" ref={passConfirmRef} placeholder="Confirm Password" name="passwordConfirm" onChange={handleChange} />
-            <span className="error-message">{error?.passwordConfirm}</span>
+                <PasswordInput error={error?.passwordConfirm} passRef={passConfirmRef} text="Confirm Password" name="passwordConfirm" change={handleChange} />
+                <span className="error-message">{error?.passwordConfirm}</span>
 
-            <button type="submit" disabled={loading} >Signup</button>
-            <Link to="/login">
-                Already have an account? Login
-            </Link>
-        </form>
+                <div className="inverted__link">
+                    <span>
+                        Already have an account? <Link to="/login">Sign in!</Link>
+                    </span>
+                    <button type="submit" disabled={loading}>Register</button>
+                </div>
+            </form>
+       </div>
+        
     );
 }
 
