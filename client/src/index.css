@@ -70,13 +70,22 @@
     font-size: 1.6rem;
 }
 
+.container__outside form input:focus{
+    border-color: var(--green_2);
+}
+
 .input__container{
     display: inherit;
     flex-direction: inherit;
+    position: relative;
 }
 
-.container__outside form input:focus{
-    border-color: var(--green_2);
+.container__outside .pass-icon{
+    font-size: 2.5rem;
+    color: var(--gray_2);
+    position: absolute;
+    right: 3.5rem;
+    top: 1.5rem;
 }
 
 .inverted__link{
