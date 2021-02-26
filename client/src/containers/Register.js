@@ -61,8 +61,8 @@ const Auth = () => {
             const res = await Signup(userData);
 
             // if successful register login the user and set the local storage and state
-            localStorage.setItem('user', JSON.stringify(res));
-            setCurrentUser(res);
+            localStorage.setItem('user', JSON.stringify(res.data));
+            setCurrentUser(res.data);
 
             // redirect on successfull register
             history.push('/friends');
