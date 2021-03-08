@@ -1,8 +1,10 @@
 import { useState, useRef } from 'react';
 import { useHistory, Link, Redirect } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../../contexts/AuthContext';
 
-import PasswordInput from '../components/PasswordInput';
+import PasswordInput from '../../components/PasswordInput';
+
+import './Auth.css';
 
 const Auth = () => {
     // states

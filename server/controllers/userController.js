@@ -35,6 +35,8 @@ const handleErrors = err => {
 // update user data
 const update_settings = async (req, res) => {
     const user = req.user;
+
+    console.log(req.body);
     
     try{
         await User.findByIdAndUpdate(user._id, { settings: { ...req.body }}, { new: true})

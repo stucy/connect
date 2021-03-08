@@ -35,6 +35,10 @@ const userSchema = new mongoose.Schema({
             default: [],
         }
     },
+    avatar: {
+        type: String,
+        default: 'default.png'
+    },
     settings: {
         darkMode: {
             type: Boolean,
