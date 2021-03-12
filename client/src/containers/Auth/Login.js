@@ -65,7 +65,7 @@ const Auth = () => {
     if(currentUser) return <Redirect to="/friends" />
 
     return (
-       <div className="container__outside">
+       <div className="form-container">
            <h1>Let's sign you in.</h1>
            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
            <form onSubmit={handleSubmit} onChange={handleChange} autoComplete="off">

@@ -2,6 +2,12 @@ import { useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
+import PasswordInput from '../../components/PasswordInput';
+
+import './Auth.css';
+
+import { HiArrowLeft } from "react-icons/hi";
+
 const ChangePass = () => {
     //state
     const [error, setError] = useState({});
@@ -71,17 +77,23 @@ const ChangePass = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input className={`${error?.oldPass ? 'error' : ''}`} type="password" ref={oldPass} placeholder="Old Password"/>
-            <span className="error-message">{error?.oldPassword}</span>
+        <div className="form-container">
 
-            <input type="password" ref={newPass} placeholder="New Password"/>
+            <HiArrowLeft className="back-icon" onClick={() => history.goBack()}/>
 
-            <input className={`${error?.confirmNewPass ? 'error' : ''}`} type="password" ref={confirmNewPass} placeholder="Confirm new password" name="confirmNewPass"/>
-            <span className="error-message">{error?.confirmNewPass}</span>
+            <form onSubmit={handleSubmit}>
 
-            <button disabled={loading}>Change Password</button>
-        </form>
+                <PasswordInput error={error?.oldPass} passRef={oldPass} text="Old Password" name="oldPassword" change={handleChange} />
+                <span className="error-message">{error?.oldPassword}</span>
+
+                <PasswordInput error={false} passRef={newPass} text="New Password" name="newPass" change={handleChange} />
+
+                <PasswordInput error={error?.confirmNewPass} passRef={confirmNewPass} text="Confirm Password" name="confirmNewPass" change={handleChange} />
+                <span className="error-message">{error?.confirmNewPass}</span>
+
+                <button disabled={loading}>Change Password</button>
+            </form>
+        </div>
     )
 }
 

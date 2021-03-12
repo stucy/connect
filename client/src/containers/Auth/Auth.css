@@ -1,5 +1,5 @@
 /* Login/Register styles */
-.container__outside{
+.form-container{
     width: 100%;
     height: 100%;
     display: flex;
@@ -12,12 +12,12 @@
     box-sizing: border-box;
 }
 
-.container__outside h1{
+.form-container h1{
     margin-bottom: 2rem;
     font-size: 4rem;
 }
 
-.container__outside p {
+.form-container p {
     color: var(--gray_4);
     /* width: 200px; */
     text-align: center;
@@ -25,7 +25,7 @@
     font-size: 1.9rem;
 }
 
-.container__outside form{
+.form-container form{
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -33,7 +33,7 @@
     max-width: 350px;
 }
 
-.container__outside form input {
+.form-container form input {
     background-color: var(--gray_5);
     border: 2.8px solid var(--green_1);
     padding: 1.2rem 1rem;
@@ -44,7 +44,7 @@
     font-size: 1.6rem;
 }
 
-.container__outside form input:focus{
+.form-container form input:focus{
     border-color: var(--green_2);
 }
 
@@ -54,7 +54,7 @@
     position: relative;
 }
 
-.container__outside .pass-icon{
+.form-container .pass-icon{
     font-size: 2.5rem;
     color: var(--gray_2);
     position: absolute;
@@ -71,7 +71,8 @@
     margin-top: auto;
 }
 
-.container__outside button{
+.form-container button,
+.crop-container button{
     background-color: #DBDADA;
     border: none;
     outline: none;
@@ -83,30 +84,30 @@
     cursor: pointer;
 }
 
-.container__outside button:hover{
+.form-container button:hover{
     background-color: var(--green_2);
     color: var(--gray_4);
 }
 
-.container__outside span{
+.form-container span{
     font-size: 1.8rem;
     color: var(--gray_1);
 }
 
-.container__outside a {
+.form-container a {
     color: var(--green_2);
     font-size: inherit;
 }
 
-.container__outside a:hover{
+.form-container a:hover{
     text-decoration: none;
 }
 
-.container__outside form input.error {
+.form-container form input.error {
     border: 1px solid var(--error_1);
 }
 
-.container__outside .error-message{
+.form-container .error-message{
     color: var(--error_2);
     margin-left: 2rem;
 
@@ -115,7 +116,7 @@
 /* Start media queries */
 @media (min-width: 780px){
 
-    .container__outside{
+    .form-container{
         padding: 80px 40px 20px;
     }
 
@@ -128,7 +129,7 @@
         margin-top: 1rem;
     }
 
-    .container__outside p {
+    .form-container p {
         width: auto;
     }
 }

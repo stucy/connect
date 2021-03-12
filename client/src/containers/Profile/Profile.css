@@ -5,12 +5,12 @@
     height: 100%;
     background-color: var(--main_background);
     padding: 30px 0px;
-    color: white;
+    color: var(--gray_4);
 }
 
 .profile-container h1{
     text-align: center;
-    background-color: white;
+    background-color: var(--gray_4);
     color: black;
     border-radius: 50%;
     width: 8.5rem;
@@ -31,10 +31,59 @@
     margin: 1.2rem;
 }
 
+.profile-avatar{
+    margin: 0 auto;
+    position: relative;
+}
+
+.profile-avatar img{
+    width: 10rem;
+    height: 10rem;
+}
+
+.profile-avatar .edit-icon{
+    font-size: 2.2rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .8);
+    border-radius: 50%;
+    padding: .5rem;
+}
+
+.profile-avatar .edit-icon:hover{
+    background-color: rgba(0, 0, 0, 1);
+    cursor: pointer;
+}
+
 .back-icon {
+    color: var(--gray_4);
     font-size: 2.5rem;
     position: absolute;
     top: 1.5rem;
     left: 1.5rem;
     cursor: pointer;
+}
+
+.crop-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: var(--main_background);
+    padding: 40px 10px;
+    box-sizing: border-box;
+}
+
+.crop-container button {
+    width: 200px;
+    font-size: 2.5rem;
+    margin-top: 30px;
+}
+
+.crop-container h1{
+    font-size: 4rem;
+    color: var(--gray_4);
+    margin-bottom: 20px;
 }
