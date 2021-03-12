@@ -16,6 +16,8 @@ router.post('/update_settings', requireAuth, userController.update_settings);
 
 router.post('/change_password', requireAuth, userController.change_password);
 
+router.post('/save_avatar', requireAuth, userController.save_avatar);
+
 router.post('/send_invite', requireAuth, userController.send_invite);
 
 router.post('/accept_invite', requireAuth, userController.accept_invite);

@@ -24,11 +24,11 @@ export const AuthProvider = ({children}) => {
 
     // logic functions of the authContext
     const Signup = userData => {
-        return axios.post('/signup', userData);
+        return axios.post('http://localhost:5000/signup', userData);
     }
 
     const Login = (email, password) => {
-        return axios.post('/login', { email, password });
+        return axios.post('http://localhost:5000/login', { email, password });
     }
 
     const Logout = async () => {
@@ -51,11 +51,20 @@ export const AuthProvider = ({children}) => {
         Signup,
         Login,
         Logout
-    };
+    }; 
+    
+    let theme = currentUser?.settings?.darkMode ? 'darkTheme' : 'lightTheme';
+
+    if(!currentUser){
+        theme = 'darkTheme';
+    }
+
 
     return (
         <AuthContext.Provider value={value}>
-            {children}
+            <div className={theme}>
+                {children}
+            </div>
         </AuthContext.Provider>
     );
 }

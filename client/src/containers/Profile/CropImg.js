@@ -57,12 +57,12 @@ const CropImg = () => {
        
         // As Base64 string
         const base64Image = canvas.toDataURL('image/jpeg');
-        console.log(base64Image)
+        // console.log(base64Image)
 
-        axios.post('/save-avatar', {img: base64Image})
+        axios.post('/save_avatar', { image: base64Image })
         .then(res => {
             setCurrentUser(prevState => {
-                prevState.avatar = res.data;
+                prevState.avatar = res.data.file;
                 localStorage.setItem('user', JSON.stringify(prevState));
                 return {...prevState}
             });

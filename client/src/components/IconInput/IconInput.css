@@ -4,7 +4,6 @@
     border: none;
     color: white;
     font-size: 2rem;
-    width: 100%;
     text-align: left;
     font-weight: 500;
     text-decoration: none;
@@ -41,7 +40,6 @@
     width: 4.5rem;
     height: 2rem;
     margin-left: auto;
-    left: -3.5rem;
   }
   
   .switch input { 
@@ -57,7 +55,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: var(--gray_1);
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -69,17 +67,17 @@
     width: 2rem;
     left: 0px;
     bottom: 0px;
-    background-color: white;
+    background-color: var(--gray_4);
     -webkit-transition: .4s;
     transition: .4s;
   }
   
   input:checked + .slider {
-    background-color: var(--green_2);
+    background-color: var(--green_3);
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px var(--green_2);
+    box-shadow: 0 0 1px var(--green_3);
   }
   
   input:checked + .slider:before {

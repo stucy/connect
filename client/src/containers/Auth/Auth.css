@@ -113,6 +113,13 @@
 
 }
 
+.form-container .success-message{
+    color: var(--green_3);
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
 /* Start media queries */
 @media (min-width: 780px){
 

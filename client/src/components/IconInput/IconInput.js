@@ -38,7 +38,7 @@ const IconInput = ({Icon, text, type, click, color, checked, disabled, name}) =>
                     </div>
                     {text}
                     <label className="switch">
-                        <input type="checkbox" checked={checked} ref={toggleRef} onClick={click}
+                        <input type="checkbox" checked={checked} ref={toggleRef} onChange={click}
                             disabled={disabled} name={name}/>
                         <span className="slider round"></span>
                     </label>

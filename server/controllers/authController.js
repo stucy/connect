@@ -53,7 +53,8 @@ const signup = async (req, res) => {
             id: user._id,
             username: user.username,
             friends: user.friends,
-            settings: user.settings
+            settings: user.settings,
+            avatar: user.avatar
         };
 
         // return succesful responce
@@ -83,7 +84,8 @@ const login = async (req, res) => {
             id: user._id,
             username: user.username,
             friends: user.friends,
-            settings: user.settings
+            settings: user.settings,
+            avatar: user.avatar
         };
 
         // return succesful responce

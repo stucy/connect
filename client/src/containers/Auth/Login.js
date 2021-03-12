@@ -69,7 +69,7 @@ const Auth = () => {
            <h1>Let's sign you in.</h1>
            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
            <form onSubmit={handleSubmit} onChange={handleChange} autoComplete="off">
-                <span className="error-message">{error}</span>
+                <span className="error-message">{error?.login}</span>
                 <input type="text" ref={emailRef} placeholder="Email" />
                 <PasswordInput passRef={passRef} text="Password"/>
             <div className="inverted__link">

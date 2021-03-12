@@ -12,20 +12,10 @@ import { HiLockClosed, HiOutlineLogout, HiMoon, HiChat, HiBell, HiArrowLeft, HiP
 const Profile = () => {
     const { Logout, currentUser, setCurrentUser} = useAuth();
     const [loading, setLoading] = useState(false);
-    const [avatar, setAvatar] = useState(currentUser?.avatar);
 
     const history = useHistory();
 
     const fileInputRef = useRef()
-
-    useEffect(() => {
-        if(currentUser?.avatar == 'default.png' || true){
-            import('../../images/default.png')
-            .then((img) => {
-                setAvatar(img.default)
-            });
-        }
-    }, [])
 
     const settingChangeHandler = (e) => {
         // set loading status
@@ -36,11 +26,12 @@ const Profile = () => {
 
         // create post body
         const obj = {};
+        
         obj[setting] = !currentUser.settings[setting];
 
-        console.log(obj);
+        // console.log(obj);
         //send post request
-        axios.post('/update_settings', obj)
+        axios.post('http://localhost:5000/update_settings', obj)
         .then(res => {
             setCurrentUser(prevState => {
                 prevState.settings[setting] = obj[setting];
@@ -84,7 +75,7 @@ const Profile = () => {
 
 
             <div className="profile-avatar">
-                <img src={avatar} alt="Profile Image"/>
+                <img src={`http://localhost:5000/avatars/${currentUser?.avatar}`} alt="Profile Image"/>
                 <HiPencil className="edit-icon" onClick={() => {
                     fileInputRef.current.click();
                 }}/>
@@ -95,22 +86,22 @@ const Profile = () => {
             <h4>Profile</h4>
 
             <IconInput type="toggle" Icon={HiMoon} 
-                text="Dark Mode" checked={currentUser?.settings.darkMode}
-                 click={settingChangeHandler} color="darkgray" disabled={true} name="darkMode"/>
+                text="Dark Mode" checked={!!(currentUser?.settings.darkMode)}
+                 click={settingChangeHandler} color="#545454" name="darkMode"/>
 
             <IconInput type="toggle" Icon={HiChat} 
-                text="Notifications" checked={currentUser?.settings.notifications}
-                 click={settingChangeHandler} color="lightblue" disabled={loading} name="notifications"/>
+                text="Notifications" checked={!!(currentUser?.settings.notifications)}
+                 click={settingChangeHandler} color="#57A6C4" disabled={loading} name="notifications"/>
 
             <IconInput type="toggle" Icon={HiBell} 
-                text="Active Status" checked={currentUser?.settings.activeStatus}
-                 click={settingChangeHandler} color="lightgreen" disabled={loading} name="activeStatus"/>
+                text="Active Status" checked={!!(currentUser?.settings.activeStatus)}
+                 click={settingChangeHandler} color="#6FDC9A" disabled={loading} name="activeStatus"/>
 
             <h4>Security</h4>
 
-            <IconInput type="link" text="Change Password" click="change-password" Icon={HiLockClosed} color="darkblue"/>
+            <IconInput type="link" text="Change Password" click="change-password" Icon={HiLockClosed} color="#2F458E"/>
 
-            <IconInput type="button" click={Logout} text="Logout" Icon={HiOutlineLogout} color="salmon" />
+            <IconInput type="button" click={Logout} text="Logout" Icon={HiOutlineLogout} color="#C55F62" />
 
         </div>
     )

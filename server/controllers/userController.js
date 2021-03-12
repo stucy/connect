@@ -28,7 +28,6 @@ const handleErrors = err => {
         }
     }
    
-    
     return errors;
 }
 
@@ -75,6 +74,48 @@ const change_password = async (req, res) => {
         const error = handleErrors(err);
         res.status(400).json({error});
     }
+}
+
+const save_avatar = async (req, res) => {
+    let { image } = req.body;
+    const user = req.user;
+    const fs = require('fs');
+
+    //file name
+    let filename = user.username;
+
+    //unique key for file
+    const unique = Date.now();
+
+    var data = image.replace(/^data:image\/\w+;base64,/, '');
+
+    try{
+
+        fs.writeFile(`./public/avatars/${filename}-${unique}.png`, data, {encoding: 'base64'}, 
+            async function(err){
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    if(user.avatar != 'default.png') 
+                        fs.unlink(`./public/avatars/${user.avatar}`, (err) => {
+                            if(err) console.log(err)
+                        });
+
+                    user.avatar = `${filename}-${unique}.png`;
+                    await User.findByIdAndUpdate(user._id, { avatar: user.avatar})
+
+                    res.status(200).json({success: true, file: user.avatar});
+                }
+            }
+        );
+    }
+    catch(err){
+        const error = handleErrors(err);
+        res.status(400).json({error});
+    }
+
+    
 }
 
 // send friend request
@@ -287,6 +328,7 @@ const friends_data = async (req, res) => {
 module.exports = {
     update_settings,
     change_password,
+    save_avatar,
     send_invite,
     accept_invite,
     block_user,

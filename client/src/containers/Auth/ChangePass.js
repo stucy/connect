@@ -38,10 +38,10 @@ const ChangePass = () => {
         //get form data
         const oldPassword = oldPass.current.value;
         const newPassword = newPass.current.value;
-        const confirmNewPass = confirmNewPass.current.value;
+        const confirmNewPassord = confirmNewPass.current.value;
 
         // passwords dont match error
-        if(newPass === confirmNewPass){
+        if(newPassword !== confirmNewPassord){
             setLoading(false);
             return setError({confirmNewPass: 'Passwords don\'t match!'});
         }
@@ -61,7 +61,7 @@ const ChangePass = () => {
             // redirect after 2 seconds
             setTimeout(() => {
                 history.goBack();
-            }, 2000);
+            }, 1000);
         })
         .catch(err => {
             // get error object
@@ -81,6 +81,8 @@ const ChangePass = () => {
 
             <HiArrowLeft className="back-icon" onClick={() => history.goBack()}/>
 
+            <h1>Change Password</h1>
+            <span className="success-message">{error?.success}</span>
             <form onSubmit={handleSubmit}>
 
                 <PasswordInput error={error?.oldPass} passRef={oldPass} text="Old Password" name="oldPassword" change={handleChange} />
