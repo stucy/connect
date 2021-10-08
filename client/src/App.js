@@ -11,6 +11,8 @@ import ChangePass from './containers/Auth/ChangePass';
 import CropImg from './containers/Profile/CropImg';
 import Chat from './containers/Chat';
 
+import Layout from './hoc/Layout';
+
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
@@ -19,11 +21,13 @@ function App() {
       <Switch>
         <Route exact path={['/', "/login"]} component={Login}/>
         <Route exact path="/register" component={Register}/>
-        <Route exact path="/profile" component={Profile}/>
-        <Route exact path="/change-password" component={ChangePass}/>
-        <Route exact path="/crop-avatar" component={CropImg}/>
-        <Route exact path="/chat/:id" component={Chat}/>
-        <Route exact path="/friends" component={Friends} />
+        <Layout>
+          <Route exact path="/profile" component={Profile}/>
+          <Route exact path="/change-password" component={ChangePass}/>
+          <Route exact path="/crop-avatar" component={CropImg}/>
+          <Route exact path="/chat/:id" component={Chat}/>
+          <Route exact path="/friends" component={Friends} />
+        </Layout>
         <Route path="*" component={ER404} />
       </Switch>
     </AuthProvider>

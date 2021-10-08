@@ -79,9 +79,13 @@ const ChangePass = () => {
     return (
         <div className="form-container">
 
-            <HiArrowLeft className="back-icon" onClick={() => history.goBack()}/>
+            <div className="back-icon-container">
 
-            <h1>Change Password</h1>
+                <HiArrowLeft className="back-icon" onClick={() => history.goBack()}/>
+
+                <h3>Change Password</h3>
+            </div>
+
             <span className="success-message">{error?.success}</span>
             <form onSubmit={handleSubmit}>
 

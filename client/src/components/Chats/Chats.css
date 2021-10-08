@@ -1,0 +1,11 @@
+.chats-container{
+    background-color: var(--main_background);
+    color: var(--gray_4);
+    width: 400px;
+    padding: 1.5rem 2.5rem;
+    overflow: auto;
+}
+
+.chats-heading{
+    font-size: 3rem;
+}

@@ -7,6 +7,8 @@ import IconInput from '../../components/IconInput/IconInput';
 
 import './Profile.css';
 
+import avatar from '../../logo192.png';
+
 import { HiLockClosed, HiOutlineLogout, HiMoon, HiChat, HiBell, HiArrowLeft, HiPencil } from "react-icons/hi";
 
 const Profile = () => {
@@ -47,7 +49,7 @@ const Profile = () => {
     }
 
     const avatarUploadHandler = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
 
         if (e.target.files && e.target.files.length > 0) {
 
@@ -71,11 +73,15 @@ const Profile = () => {
     
     return (
         <div className="profile-container">
-            <HiArrowLeft className="back-icon" onClick={() => history.goBack()}/>
+            <div className="back-icon-container">
+                <HiArrowLeft className="back-icon" onClick={() => history.goBack()}/>
+                <h3>Settings</h3>
+            </div>
 
 
             <div className="profile-avatar">
-                <img src={`http://localhost:5000/avatars/${currentUser?.avatar}`} alt="Profile Image"/>
+                {/* <img src={`http://localhost:5000/avatars/${currentUser?.avatar}`} alt="Profile Image"/> */}
+                <img src={avatar} alt="Profile Image"/>
                 <HiPencil className="edit-icon" onClick={() => {
                     fileInputRef.current.click();
                 }}/>
