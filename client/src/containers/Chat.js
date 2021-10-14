@@ -1,5 +1,11 @@
+import Layout from '../hoc/Layout';
+
 const Chat = () => {
-    return <div>Chat</div>
+    return (
+        <Layout>
+            <div>Chat</div>
+        </Layout>
+    )
 }
 
 export default Chat;
