@@ -15,7 +15,6 @@ const Friends = () => {
                 <button onClick={() => setActive(true)}>Friends</button>
                 <button onClick={() => setActive(false)}>Invites</button>
                 {active ? <ActiveFriends /> : <Invites />}
-                <Link to="/profile">Profile</Link>
             </div>
         </Layout>
     );

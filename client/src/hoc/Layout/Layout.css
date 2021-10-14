@@ -7,3 +7,7 @@
 .form-container{
     background-color: var(--secondary_background);
 }
+
+@media (max-height: 780px) {
+    
+}

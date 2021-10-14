@@ -7,7 +7,7 @@
     background-color: var(--secondary_background);
     padding: 1rem 4rem 0rem;
     color: var(--gray_4);
-    width: 100%;
+    flex: 1;
     overflow: auto;
 }
 
