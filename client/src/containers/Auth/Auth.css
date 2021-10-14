@@ -73,12 +73,12 @@
 
 .form-container button,
 .crop-container button{
-    background-color: #DBDADA;
+    background-color: var(--gray_5);
     border: none;
     outline: none;
     padding: 1.2rem 1rem;
     border-radius: 1rem;
-    color: var(--gray_5);
+    color: var(--gray_4);
     margin: 1rem 2.2rem;
     font-size: 1.8rem;
     cursor: pointer;
@@ -86,7 +86,7 @@
 
 .form-container button:hover{
     background-color: var(--green_2);
-    color: var(--gray_4);
+    color: var(--gray_3);
 }
 
 .form-container span{
@@ -120,6 +120,11 @@
     margin-bottom: 1rem;
 }
 
+.auth-logo {
+    height: 120px;
+    margin-bottom: 10px;
+}
+
 /* Start media queries */
 @media (min-width: 780px){
 
@@ -138,5 +143,11 @@
 
     .form-container p {
         width: auto;
+    }
+}
+
+@media (max-width: 780px) {
+    .form-container{
+        padding: 2rem 0 ;
     }
 }

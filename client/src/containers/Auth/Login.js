@@ -6,6 +6,8 @@ import PasswordInput from '../../components/PasswordInput';
 
 import './Auth.css';
 
+import logo from '../../logo.svg';
+
 const Auth = () => {
     // states
     const [error, setError] = useState(null);
@@ -66,12 +68,12 @@ const Auth = () => {
 
     return (
        <div className="form-container">
-           <h1>Let's sign you in.</h1>
-           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-           <form onSubmit={handleSubmit} onChange={handleChange} autoComplete="off">
-                <span className="error-message">{error?.login}</span>
-                <input type="text" ref={emailRef} placeholder="Email" />
-                <PasswordInput passRef={passRef} text="Password"/>
+            <img className="auth-logo" src={logo} alt="Connect logo" />
+            <h1>Let's sign you in.</h1>
+            <form onSubmit={handleSubmit} onChange={handleChange} autoComplete="off">
+                    <span className="error-message">{error?.login}</span>
+                    <input type="text" ref={emailRef} placeholder="Email" />
+                    <PasswordInput passRef={passRef} text="Password"/>
             <div className="inverted__link">
                 <span>
                     Don't have an account? <Link to="/register">Register!</Link>

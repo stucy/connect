@@ -6,6 +6,8 @@ import PasswordInput from '../../components/PasswordInput';
 
 import './Auth.css';
 
+import logo from '../../logo.svg';
+
 const Auth = () => {
     // states
     const [error, setError] = useState({});
@@ -88,8 +90,8 @@ const Auth = () => {
 
     return (
         <div className="form-container">
+           <img className="auth-logo" src={logo} alt="Connect logo" />
            <h1>Make an account</h1>
-           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
            <form onSubmit={handleSubmit} autoComplete="off">
                 <input className={`${error?.email ? 'error' : ''}`} type="email" ref={emailRef} placeholder="Email" name="email" onChange={handleChange} />
                 <span className="error-message">{error?.email}</span>

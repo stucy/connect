@@ -4,6 +4,7 @@
     --error_2: #D44545;
     --main_background: #232323;
     --secondary_background: #303030;
+    --third_background: #191919;
     --green_1: #476D56;
     --green_2: #3CAC68;
     --green_3: #6FDC9A;
@@ -19,17 +20,18 @@
 .lightTheme{
     --error_1: #953636;
     --error_2: #D44545;
-    --main_background: #232323;
-    --secondary_background: #303030;
+    --main_background: #FAFAFA;
+    --secondary_background: #FFF;
+    --third_background: #e4e4e4;
     --green_1: #476D56;
     --green_2: #3CAC68;
     --green_3: #6FDC9A;
     --gray_1: #8E8E8E;
     --gray_2: #707070;
     --gray_3: #D8DADA;
-    --gray_4: #EFEFEF;
-    --gray_5: #545454;
-    --gray_6: #3A3A3A;
+    --gray_4: #3A3A3A;
+    --gray_5: #D8DADA;
+    --gray_6: #F2F2F2;
 }
 
 /* Global styles */

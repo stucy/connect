@@ -2,7 +2,7 @@
     background: none;
     outline: none;
     border: none;
-    color: white;
+    color: var(--gray_4);
     font-size: 2rem;
     text-align: left;
     font-weight: 500;
@@ -33,6 +33,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: var(--gray_3);
 }
 
 /* Toggle */
@@ -69,7 +70,7 @@
     width: 2rem;
     left: 0px;
     bottom: 0px;
-    background-color: var(--gray_4);
+    background-color: var(--gray_5);
     -webkit-transition: .4s;
     transition: .4s;
   }
