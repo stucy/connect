@@ -1,6 +1,7 @@
 .app-grid{
     display: flex;
     height: 100%;
+    background-color: var(--main_background);
 }
 
 .form-container{

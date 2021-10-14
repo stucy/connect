@@ -7,7 +7,7 @@ const fetchInvites = async () => {
 }
 
 const Invites = () => {
-    const { data, status } = useQuery('invites', fetchInvites);
+    // const { data, status } = useQuery('invites', fetchInvites);
     return <div>Invites</div>
 }
 

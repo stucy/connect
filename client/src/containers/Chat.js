@@ -1,4 +1,4 @@
-import Layout from '../hoc/Layout';
+import Layout from '../hoc/Layout/Layout';
 
 const Chat = () => {
     return (

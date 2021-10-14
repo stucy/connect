@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import ActiveFriends from '../components/ActiveFriends/ActiveFriends';
 import Invites from '../components/Invites/Invites';
-import Layout from '../hoc/Layout';
+import Layout from '../hoc/Layout/Layout';
 
 const Friends = () => {
     const [ active, setActive ] = useState(true);

@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import IconInput from '../../components/IconInput/IconInput';
 
-import Layout from '../../hoc/Layout';
+import Layout from '../../hoc/Layout/Layout';
 
 import './Profile.css';
 
@@ -113,7 +113,6 @@ const Profile = () => {
                 <IconInput type="button" click={Logout} text="Logout" Icon={HiOutlineLogout} color="#C55F62" />
 
             </div>
-            
         </Layout>
     )
 }
