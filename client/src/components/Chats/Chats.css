@@ -28,10 +28,12 @@
     position: absolute;
     top: 2rem;
     right: 2rem;
+    cursor: pointer;
 }
 
 .burger-icon{
     font-size: 2.5rem;
+    cursor: pointer;
 }
 
 .chats-container + *{

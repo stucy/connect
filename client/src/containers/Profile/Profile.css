@@ -63,12 +63,12 @@
     color: var(--gray_4);
     position: absolute;
     top: 1.5rem;
-    left: 1.5rem;
+    left: 4rem;
 }
 
 .back-icon-container h3{
     margin-left: 1rem;
-    font-size: 2rem;
+    font-size: 2.2rem;
 }
 
 .back-icon {
@@ -102,5 +102,9 @@
 @media (max-width: 780px) {
     .profile-container{
         padding: 1rem 1.5rem;
+    }
+    
+    .back-icon-container{
+        left: 1.5rem;
     }
 }
