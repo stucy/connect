@@ -23,6 +23,7 @@ function App() {
         <Route exact path="/change-password" component={ChangePass}/>
         <Route exact path="/crop-avatar" component={CropImg}/>
         <Route exact path="/chat/:id" component={Chat}/>
+        <Route exact path="/chat/:id/settings" component={Chat}/>
         <Route exact path="/friends" component={Friends} />
         <Route path="*" component={ER404} />
       </Switch>

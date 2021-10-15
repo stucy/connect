@@ -4,7 +4,7 @@
     width: 350px;
     /* padding: 1.5rem 2.5rem; */
     overflow: auto;
-    transition: all .3s ease-out;
+    transition: width .3s ease-out;
     position: relative;
 }
 
@@ -37,7 +37,11 @@
 }
 
 .chats-container + *{
-    transition: all .3s ease-out;
+    transition: transform .3s ease-out;
+}
+
+.chats-container.hidden + *{
+    transition: height .3s ease-out;
 }
 
 footer{
@@ -91,6 +95,7 @@ footer img{
     .chats-container.active + *{
         transform: translateX(100%);
         width: 0;
+        height: 0;
         padding: 0;
         overflow: hidden;
     }

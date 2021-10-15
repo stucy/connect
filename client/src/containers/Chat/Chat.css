@@ -1,0 +1,45 @@
+.chat-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: var(--secondary_background);
+    padding: 1rem 4rem 0rem;
+    color: var(--gray_4);
+    flex: 1;
+    overflow: auto;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--gray_4);
+    position: absolute;
+    top: 1.5rem;
+    left: 4rem;
+    right: 4rem;
+}
+
+.chat-header h3{
+    margin-left: 1rem;
+    font-size: 2.2rem;
+}
+
+.chat-settings{
+    color: var(--green_2);
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 780px) {
+    .chat-container{
+        padding: 1rem 1.5rem;
+    }
+    
+    .chat-header{
+        left: 1.5rem;
+        right: 1.5rem;
+    }
+}

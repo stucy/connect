@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 import './Friend.css';
 
 import { BsChatFill, BsThreeDots } from "react-icons/bs";
-
 import { FaUserPlus } from "react-icons/fa";
-
 import { ImCancelCircle, ImCheckmark} from "react-icons/im";
 
 const Friend = ({name, img, id, type}) => {
@@ -18,7 +16,7 @@ const Friend = ({name, img, id, type}) => {
                                 <img className='friend-avatar' src={img} alt="avatar" />
                                 <h1 className="friend-name">{name}</h1>
                             </div>
-                            <div class="friend-buttons">
+                            <div className="friend-buttons">
                                 <Link to={`/chat/${id}`}>
                                     <BsChatFill className='friend-icons' />
                                 </Link>
@@ -34,7 +32,7 @@ const Friend = ({name, img, id, type}) => {
                                 <img className='friend-avatar' src={img} alt="avatar" />
                                 <h1 className="friend-name">{name}</h1>
                             </div>
-                            <div class="friend-buttons">
+                            <div className="friend-buttons">
                                 <ImCancelCircle className='friend-icons cancel' />
                                 <ImCheckmark className='friend-icons accept' />
                             </div>
@@ -46,7 +44,7 @@ const Friend = ({name, img, id, type}) => {
                                 <img className='friend-avatar' src={img} alt="avatar" />
                                 <h1 className="friend-name">{name}</h1>
                             </div>
-                            <div class="friend-buttons">
+                            <div className="friend-buttons">
                                 <FaUserPlus onClick={() => {}} className='friend-icons' />
                             </div>
                         </div>
