@@ -98,3 +98,9 @@
     color: var(--gray_4);
     margin-bottom: 20px;
 }
+
+@media (max-width: 780px) {
+    .profile-container{
+        padding: 1rem 1.5rem;
+    }
+}

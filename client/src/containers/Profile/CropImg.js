@@ -82,9 +82,10 @@ const CropImg = () => {
       return (
             <div className="crop-container">
 
-                <HiArrowLeft className="back-icon" onClick={() => history.goBack()}/>
-
-                <h1>Crop Avatar</h1>
+                <div className="back-icon-container">
+                    <HiArrowLeft className="back-icon" onClick={() => history.goBack()}/>
+                    <h3>Crop Avatar</h3>
+                </div>
 
                 <ReactCrop
                     src={history.location.state.img}

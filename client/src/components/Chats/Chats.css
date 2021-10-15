@@ -8,11 +8,6 @@
     position: relative;
 }
 
-/* Track */
-.chats-container::-webkit-scrollbar-track {
-    margin-bottom: 8rem;
-  }
-
 .chats-heading{
     font-size: 3rem;
     padding: 1.5rem;
@@ -47,7 +42,7 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 8rem;
+    height: 7rem;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -81,7 +76,8 @@ footer img{
 }
 
 .clearfix{
-    margin-top: 8rem;
+    margin-top: 7rem;
+    display: block;
 }
 
 @media (max-width: 780px){

@@ -1,0 +1,34 @@
+.item-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem 2rem;
+    color: var(--gray_4);
+    text-decoration: none;
+}
+
+.item-container:hover{
+    background-color: var(--gray_5);
+    cursor: pointer;
+}
+
+.item-avatar{
+    height: 50px;
+}
+
+.item-content{
+    flex: 1;
+    margin: 1rem;
+}
+
+.item-name{
+    font-size: 2.5rem;
+}
+
+.item-message{
+    font-size: 1.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 20rem;
+    overflow: hidden;
+}

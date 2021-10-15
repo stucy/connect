@@ -5,6 +5,7 @@ import './Chats.css';
 
 import Auxiliary from '../../hoc/Auxiliary';
 import SearchInput from '../SearchInput/SearchInput'; 
+import ChatList from '../ChatList/ChatList';
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaCog } from "react-icons/fa";
@@ -34,6 +35,8 @@ const Chats = () => {
                     {x.matches ? <button className="close-drawer" onClick={() => setSide(false)} >X</button> : null}
 
                     <SearchInput placeholder='Find conversation' handle={() => {}}/>
+
+                    <ChatList />
 
                     <div className="clearfix"></div>
                     <footer>
