@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './Chats.css';
 
 import Auxiliary from '../../hoc/Auxiliary';
+import SearchInput from '../SearchInput/SearchInput'; 
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaCog } from "react-icons/fa";
@@ -31,6 +32,8 @@ const Chats = () => {
                 <Auxiliary>
                     <h1 className="chats-heading">Messages</h1>
                     {x.matches ? <button className="close-drawer" onClick={() => setSide(false)} >X</button> : null}
+
+                    <SearchInput placeholder='Find conversation' handle={() => {}}/>
 
                     <div className="clearfix"></div>
                     <footer>
