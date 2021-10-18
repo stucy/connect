@@ -36,6 +36,7 @@
     border-radius: .5rem;
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
 .add-friend-icon{

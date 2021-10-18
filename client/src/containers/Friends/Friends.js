@@ -20,10 +20,6 @@ const Friends = () => {
         {id: 1, name: 'Ivan'},
     ]);
 
-    const [ users, setUsers] = useState([
-        {id: 1, name: 'Boyan'},
-    ]);
-
     const inviteElements = invites.map(el => {
         return <Friend img={img} name={el.name} key={el.id} id={el.id} type='invite'/>
     })
@@ -32,24 +28,19 @@ const Friends = () => {
         return <Friend img={img} name={el.name} key={el.id} id={el.id} type='friend' />
     })
 
-    const userElements = users.map(el => {
-        return <Friend img={img} name={el.name} key={el.id} id={el.id} type='user' />
-    })
-
     return (
         <Layout>
             <div className="friends-container">
                 <div className="friends-header-container">
                     <h3 className="firends-heading">Friends</h3>
-                    <button type="button" className="add-friend-btn">
+                    <Link to='/add-friends' className="add-friend-btn">
                         Add Friend
                         <FaUserPlus className='add-friend-icon' />
-                    </button>
+                    </Link>
                 </div>
                 <div className="friend-items">
                     {inviteElements}
                     {friendElements}
-                    {userElements}
                 </div>
             </div>
         </Layout>
