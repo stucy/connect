@@ -33,6 +33,12 @@
     cursor: pointer;
 }
 
+.messages-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 6rem;
+}
+
 @media (max-width: 780px) {
     .chat-container{
         padding: 1rem 1.5rem;
