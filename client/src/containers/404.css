@@ -28,6 +28,8 @@
     border: none;
     outline: none;
     padding: 1.2rem 1rem;
+    text-align: center;
+    text-decoration: none;
     width: 20rem;
     border-radius: 1rem;
     color: var(--gray_2);
