@@ -1,5 +1,16 @@
+import './404.css';
+
+import er404 from '../404.svg';
+
 const ER404 = () => {
-    return <div>404</div>
+    return (
+        <div className="er404-container">
+            <h1 className='er404'>404</h1>
+            <h2 className='er404-message'>Oops, Page Not Found!</h2>
+            <img className='er404-img' src={er404} alt="404 Image" />
+            <button className="er404-btn">Go to homepage</button>
+        </div>
+    )
 }
 
 export default ER404;

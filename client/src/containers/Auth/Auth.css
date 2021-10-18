@@ -73,12 +73,12 @@
 
 .form-container button,
 .crop-container button{
-    background-color: var(--gray_5);
+    background-color: var(--gray_3);
     border: none;
     outline: none;
     padding: 1.2rem 1rem;
     border-radius: 1rem;
-    color: var(--gray_4);
+    color: var(--gray_2);
     margin: 1rem 2.2rem;
     font-size: 1.8rem;
     cursor: pointer;
