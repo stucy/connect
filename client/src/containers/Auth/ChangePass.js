@@ -4,6 +4,8 @@ import axios from 'axios';
 
 import PasswordInput from '../../components/PasswordInput';
 
+import Layout from '../../hoc/Layout/Layout';
+
 import './Auth.css';
 
 import { HiArrowLeft } from "react-icons/hi";
@@ -77,29 +79,31 @@ const ChangePass = () => {
     }
 
     return (
-        <div className="form-container">
+        <Layout>
+            <div className="form-container">
 
-            <div className="back-icon-container">
+                <div className="back-icon-container">
 
-                <HiArrowLeft className="back-icon" onClick={() => history.goBack()}/>
+                    <HiArrowLeft className="back-icon" onClick={() => history.goBack()}/>
 
-                <h3>Change Password</h3>
+                    <h3>Change Password</h3>
+                </div>
+
+                <span className="success-message">{error?.success}</span>
+                <form onSubmit={handleSubmit}>
+
+                    <PasswordInput error={error?.oldPass} passRef={oldPass} text="Old Password" name="oldPassword" change={handleChange} />
+                    <span className="error-message">{error?.oldPassword}</span>
+
+                    <PasswordInput error={false} passRef={newPass} text="New Password" name="newPass" change={handleChange} />
+
+                    <PasswordInput error={error?.confirmNewPass} passRef={confirmNewPass} text="Confirm Password" name="confirmNewPass" change={handleChange} />
+                    <span className="error-message">{error?.confirmNewPass}</span>
+
+                    <button disabled={loading}>Change Password</button>
+                </form>
             </div>
-
-            <span className="success-message">{error?.success}</span>
-            <form onSubmit={handleSubmit}>
-
-                <PasswordInput error={error?.oldPass} passRef={oldPass} text="Old Password" name="oldPassword" change={handleChange} />
-                <span className="error-message">{error?.oldPassword}</span>
-
-                <PasswordInput error={false} passRef={newPass} text="New Password" name="newPass" change={handleChange} />
-
-                <PasswordInput error={error?.confirmNewPass} passRef={confirmNewPass} text="Confirm Password" name="confirmNewPass" change={handleChange} />
-                <span className="error-message">{error?.confirmNewPass}</span>
-
-                <button disabled={loading}>Change Password</button>
-            </form>
-        </div>
+        </Layout>
     )
 }
 
