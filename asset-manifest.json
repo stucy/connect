@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.fd430794.chunk.css",
-    "main.js": "/static/js/main.ea6c828c.chunk.js",
-    "main.js.map": "/static/js/main.ea6c828c.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.b611ebcd.js",
-    "runtime-main.js.map": "/static/js/runtime-main.b611ebcd.js.map",
-    "static/css/2.21050121.chunk.css": "/static/css/2.21050121.chunk.css",
-    "static/js/2.58914f4a.chunk.js": "/static/js/2.58914f4a.chunk.js",
-    "static/js/2.58914f4a.chunk.js.map": "/static/js/2.58914f4a.chunk.js.map",
+    "main.css": "//connect/static/css/main.fd430794.chunk.css",
+    "main.js": "//connect/static/js/main.ea6c828c.chunk.js",
+    "main.js.map": "//connect/static/js/main.ea6c828c.chunk.js.map",
+    "runtime-main.js": "//connect/static/js/runtime-main.b611ebcd.js",
+    "runtime-main.js.map": "//connect/static/js/runtime-main.b611ebcd.js.map",
+    "/connect/static/css/2.21050121.chunk.css": "//connect/static/css/2.21050121.chunk.css",
+    "/connect/static/js/2.58914f4a.chunk.js": "//connect/static/js/2.58914f4a.chunk.js",
+    "/connect/static/js/2.58914f4a.chunk.js.map": "//connect/static/js/2.58914f4a.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/2.21050121.chunk.css.map": "/static/css/2.21050121.chunk.css.map",
-    "static/css/main.fd430794.chunk.css.map": "/static/css/main.fd430794.chunk.css.map",
-    "static/js/2.58914f4a.chunk.js.LICENSE.txt": "/static/js/2.58914f4a.chunk.js.LICENSE.txt",
-    "static/media/404.9acf9988.svg": "/static/media/404.9acf9988.svg",
-    "static/media/index.css": "/static/media/Roboto-Regular.a8d6ac03.ttf",
-    "static/media/logo.64d15edf.svg": "/static/media/logo.64d15edf.svg"
+    "/connect/static/css/2.21050121.chunk.css.map": "//connect/static/css/2.21050121.chunk.css.map",
+    "/connect/static/css/main.fd430794.chunk.css.map": "//connect/static/css/main.fd430794.chunk.css.map",
+    "/connect/static/js/2.58914f4a.chunk.js.LICENSE.txt": "//connect/static/js/2.58914f4a.chunk.js.LICENSE.txt",
+    "/connect/static/media/404.9acf9988.svg": "//connect/static/media/404.9acf9988.svg",
+    "/connect/static/media/index.css": "//connect/static/media/Roboto-Regular.a8d6ac03.ttf",
+    "/connect/static/media/logo.64d15edf.svg": "//connect/static/media/logo.64d15edf.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.b611ebcd.js",
-    "static/css/2.21050121.chunk.css",
-    "static/js/2.58914f4a.chunk.js",
-    "static/css/main.fd430794.chunk.css",
-    "static/js/main.ea6c828c.chunk.js"
+    "/connect/static/js/runtime-main.b611ebcd.js",
+    "/connect/static/css/2.21050121.chunk.css",
+    "/connect/static/js/2.58914f4a.chunk.js",
+    "/connect/static/css/main.fd430794.chunk.css",
+    "/connect/static/js/main.ea6c828c.chunk.js"
   ]
 }
