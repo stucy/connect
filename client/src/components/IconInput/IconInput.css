@@ -12,6 +12,7 @@
     align-items: center;
     background-color: var(--gray_6);
     margin-bottom: 0.8rem;
+    cursor: pointer;
 }
 
 .icon-input:hover{
