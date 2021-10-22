@@ -14,7 +14,7 @@ const ChatMessage = ({msg, img, time, type}) => {
             message =   <div className='sent-container'>
                             <img className="message-avatar" src={img} alt="User Avatar" />
                             <div className={`message-container ${type}`}>
-                                <p class="message-text">{msg}</p>
+                                <p className="message-text">{msg}</p>
                                 <span className="message-time">{time}</span>
                             </div>
                         </div>
@@ -22,7 +22,7 @@ const ChatMessage = ({msg, img, time, type}) => {
         case 'system':
             message =   <div className={`message-container ${type}`}>
                             <span className="message-time">{time}</span>
-                            <p class="message-text">{msg}</p>
+                            <p className="message-text">{msg}</p>
                         </div>
             break;
     }

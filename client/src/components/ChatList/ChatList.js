@@ -13,8 +13,8 @@ const containerStyle = {
 const ChatList = () => {
 
     const [chats, setChats] = useState([
-        {id: 1,name: 'Stoyan', lastMessage: 'zdr kak si shte mi dadesh li pet leva na zaem zdr kak si shte mi dadesh li pet leva na zaem', time: '12:23'},
-        {id: 2,name: 'Ivan', lastMessage: 'kopr', time: '22:13'},
+        {id: 1,name: 'Stoyan', lastMessage: 'Hello! How are you. Lorem ipsu dolor amet something something', time: '12:23'},
+        {id: 2,name: 'Ivan', lastMessage: 'Yo. How are you man?', time: '22:13'},
     ]);
 
     const chatElements = chats.map(el => {
